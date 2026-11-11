@@ -1,82 +1,342 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ReviewBoost AI | Restaurant Reputation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ReviewBoost AI helps local businesses grow through digital marketing, social media, local SEO, review management and websites.">
+<title>ReviewBoost AI | Digital Growth Agency</title>
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #101827;
-  color: white;
-  text-align: center;
+:root {
+  --bg:#080d1b;
+  --panel:#111a2e;
+  --blue:#4f8cff;
+  --purple:#9b75ff;
+  --white:#f7f8ff;
+  --muted:#a9b3c9;
 }
-header { padding: 25px; }
-h1 { color: #69e5b1; font-size: 38px; }
-section { padding: 35px 20px; }
-p { color: #cbd5e1; line-height: 1.7; }
-.card {
-  background: #1e293b;
-  padding: 22px;
-  margin: 15px auto;
-  border-radius: 14px;
-  max-width: 450px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.6
 }
-a {
-  display: inline-block;
-  background: #16a878;
-  color: white;
-  padding: 14px 24px;
-  border-radius: 8px;
-  text-decoration: none;
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,90%);margin:auto}
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(8,13,27,.94);
+  border-bottom:1px solid #202b43;
+  backdrop-filter:blur(12px)
 }
-footer { padding: 25px; color: #94a3b8; }
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:72px;gap:20px
+}
+.logo{font-size:22px;font-weight:800}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:23px;flex-wrap:wrap}
+nav a{font-size:14px;color:var(--muted)}
+nav a:hover{color:white}
+.hero{
+  padding:100px 0 85px;text-align:center;
+  background:radial-gradient(ellipse at top,#182e5b 0%,#080d1b 65%)
+}
+.tag{
+  display:inline-block;padding:7px 15px;border-radius:30px;
+  border:1px solid #405c91;color:#b9d1ff;font-size:13px
+}
+h1{font-size:clamp(38px,7vw,70px);line-height:1.08;margin:24px 0}
+.gradient{
+  background:linear-gradient(90deg,#63a5ff,#b18bff);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{max-width:650px;margin:20px auto;color:var(--muted);font-size:18px}
+.actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-block;padding:13px 22px;border-radius:9px;
+  font-weight:bold;background:linear-gradient(100deg,var(--blue),var(--purple));
+  color:white;border:0;cursor:pointer
+}
+.btn.secondary{background:transparent;border:1px solid #506184}
+section{padding:75px 0}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:34px;margin:0 0 10px}
+.section-title p{color:var(--muted)}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px
+}
+.card{
+  background:var(--panel);border:1px solid #26344f;
+  padding:25px;border-radius:15px;transition:.2s
+}
+.card:hover{transform:translateY(-5px);border-color:var(--blue)}
+.card .emoji{font-size:30px}
+.card h3{margin:12px 0 7px}
+.card p{color:var(--muted);font-size:14px}
+.about{
+  background:#0d1426;border-top:1px solid #202b43;
+  border-bottom:1px solid #202b43
+}
+.steps{counter-reset:step}
+.step{position:relative}
+.step:before{
+  counter-increment:step;content:counter(step);
+  display:inline-grid;place-items:center;width:34px;height:34px;
+  border-radius:50%;background:#234a89;color:white;font-weight:bold
+}
+.price{font-size:25px;font-weight:bold;color:#83afff}
+.price small{font-size:12px;color:var(--muted);font-weight:normal}
+.portfolio-note{
+  border:1px dashed #52678d;padding:15px;border-radius:10px;
+  color:#c4d1e9;margin-bottom:22px;font-size:13px
+}
+.contact{
+  background:linear-gradient(130deg,#14264a,#15102c);
+  border-radius:20px;padding:40px
+}
+input,textarea,select{
+  width:100%;padding:14px;margin:8px 0 15px;
+  background:#0b1325;border:1px solid #344461;
+  border-radius:8px;color:white;font:inherit
+}
+label{font-size:14px;color:#dce5f8}
+textarea{min-height:110px;resize:vertical}
+footer{
+  padding:30px 0;text-align:center;color:var(--muted);
+  border-top:1px solid #202b43;font-size:13px
+}
+footer a{color:#91b9ff}
+@media(max-width:650px){
+ .nav{padding:14px 0;align-items:flex-start;flex-direction:column}
+ nav{gap:13px}
+ .hero{padding:70px 0}
+ section{padding:55px 0}
+ .contact{padding:23px}
+}
 </style>
 </head>
 <body>
+
 <header>
-  <h1>ReviewBoost AI</h1>
-  <p>Smarter Google Review Management
-  for Restaurants</p>
-  <a href="#contact">Get Started</a>
+ <div class="container nav">
+  <a href="#" class="logo">ReviewBoost <span>AI.</span></a>
+  <nav>
+   <a href="#services">Services</a>
+   <a href="#about">About</a>
+   <a href="#portfolio">Portfolio</a>
+   <a href="#pricing">Pricing</a>
+   <a href="#contact">Contact</a>
+  </nav>
+ </div>
 </header>
 
-<section>
-  <h2>Grow Your Online Reputation</h2>
-  <p>We help restaurants understand customer
-  feedback and respond professionally.</p>
-
-  <div class="card">
-    <h3>AI Review Replies</h3>
-    <p>Professional, personalised responses
-    to customer reviews.</p>
+<main>
+<section class="hero">
+ <div class="container">
+  <span class="tag">YOUR DIGITAL GROWTH PARTNER</span>
+  <h1>Grow Your Business<br><span class="gradient">With Smarter Marketing.</span></h1>
+  <p>We help local businesses build their online presence, attract customers and grow with smart digital marketing solutions.</p>
+  <div class="actions">
+   <a class="btn" href="#contact">Get Started →</a>
+   <a class="btn secondary" href="#services">Explore Services</a>
   </div>
+ </div>
+</section>
 
-  <div class="card">
-    <h3>Review Monitoring</h3>
-    <p>Organised tracking of positive and
-    negative customer feedback.</p>
+<section id="services">
+ <div class="container">
+  <div class="section-title">
+   <h2>Our Services</h2>
+   <p>Everything your business needs to grow online.</p>
   </div>
+  <div class="grid">
+   <article class="card">
+    <div class="emoji">📱</div>
+    <h3>Social Media Marketing</h3>
+    <p>Creative content, social media calendars and account management for Instagram and Facebook.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">⭐</div>
+    <h3>Review Management</h3>
+    <p>Monitor customer feedback and create thoughtful, professional replies to genuine reviews.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">📍</div>
+    <h3>Local SEO</h3>
+    <p>Improve local search visibility and optimise your Google Business Profile.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">🎯</div>
+    <h3>Meta Ads</h3>
+    <p>Plan and manage Facebook and Instagram advertising campaigns with clear reporting.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">💻</div>
+    <h3>Website Development</h3>
+    <p>Responsive, modern websites and landing pages designed to generate enquiries.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">🔍</div>
+    <h3>SEO Services</h3>
+    <p>Website audits, keyword research and on-page optimisation.</p>
+   </article>
+  </div>
+ </div>
+</section>
 
-  <div class="card">
-    <h3>Monthly Reports</h3>
-    <p>Understand customer satisfaction
-    and common complaints.</p>
+<section class="about" id="about">
+ <div class="container">
+  <div class="section-title">
+   <h2>Why ReviewBoost AI?</h2>
+   <p>Simple, transparent and growth-focused marketing.</p>
   </div>
+  <div class="grid">
+   <article class="card"><h3>📊 Data-focused</h3><p>We track useful metrics and use them to improve marketing decisions.</p></article>
+   <article class="card"><h3>🤝 Personal support</h3><p>Clear communication and solutions based on each business's goals.</p></article>
+   <article class="card"><h3>⚡ Smart workflows</h3><p>Use modern digital and AI tools to make marketing work more efficiently.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="portfolio">
+ <div class="container">
+  <div class="section-title">
+   <h2>Our Portfolio</h2>
+   <p>Examples of the work we can create.</p>
+  </div>
+  <div class="portfolio-note">
+   These are demonstration concepts, not claimed client projects or verified business results. Replace them with real work after receiving permission from clients.
+  </div>
+  <div class="grid">
+   <article class="card">
+    <div class="emoji">🍽️</div>
+    <h3>Restaurant Growth Concept</h3>
+    <p>Sample Instagram campaign, menu promotion and local profile optimisation.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">💇</div>
+    <h3>Salon Marketing Concept</h3>
+    <p>Sample service promotions, social media posts and customer review response templates.</p>
+   </article>
+   <article class="card">
+    <div class="emoji">🏋️</div>
+    <h3>Fitness Marketing Concept</h3>
+    <p>Sample membership campaign, promotional creatives and enquiry landing page.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="pricing" class="about">
+ <div class="container">
+  <div class="section-title">
+   <h2>Starter Packages</h2>
+   <p>Illustrative starting prices. Final quotes depend on the actual work.</p>
+  </div>
+  <div class="grid">
+   <article class="card">
+    <h3>Starter</h3>
+    <div class="price">₹1,999 <small>/ month</small></div>
+    <p>For small businesses starting their social media journey.</p>
+    <p>• Basic content planning<br>• 4 social media creatives<br>• Monthly progress summary</p>
+    <a class="btn" href="#contact">Enquire</a>
+   </article>
+   <article class="card">
+    <h3>Growth</h3>
+    <div class="price">₹3,999 <small>/ month</small></div>
+    <p>For businesses wanting a more active online presence.</p>
+    <p>• 8 social media creatives<br>• Profile optimisation<br>• Review response support<br>• Monthly report</p>
+    <a class="btn" href="#contact">Enquire</a>
+   </article>
+   <article class="card">
+    <h3>Custom</h3>
+    <div class="price">Let's Talk</div>
+    <p>For businesses with specific marketing requirements.</p>
+    <p>• Website projects<br>• SEO plans<br>• Ad campaign management<br>• Custom deliverables</p>
+    <a class="btn" href="#contact">Enquire</a>
+   </article>
+  </div>
+  <p style="color:#a9b3c9;font-size:12px;margin-top:20px">Advertising spend, taxes and third-party charges are separate. No sales or growth results are guaranteed.</p>
+ </div>
 </section>
 
 <section id="contact">
-  <h2>Let's Work Together</h2>
-  <p>Contact us to improve your restaurant's
-  customer experience.</p>
-  <a href="https://wa.me/91YOURNUMBER">
-    Contact on WhatsApp
-  </a>
+ <div class="container">
+  <div class="contact">
+   <div class="section-title">
+    <h2>Let's Grow Your Business</h2>
+    <p>Tell us about your business and what you want to achieve.</p>
+   </div>
+   <form id="leadForm">
+    <label for="name">Your name</label>
+    <input id="name" required placeholder="Enter your name">
+    <label for="business">Business name</label>
+    <input id="business" required placeholder="Enter business name">
+    <label for="service">Service required</label>
+    <select id="service" required>
+     <option value="">Choose a service</option>
+     <option>Social Media Marketing</option>
+     <option>Google Business Profile</option>
+     <option>Review Management</option>
+     <option>SEO</option>
+     <option>Meta Ads</option>
+     <option>Website Development</option>
+     <option>Full Digital Marketing</option>
+    </select>
+    <label for="message">Your requirements</label>
+    <textarea id="message" placeholder="Tell us about your goals"></textarea>
+    <button class="btn" type="submit">Send Enquiry on WhatsApp →</button>
+   </form>
+   <p style="font-size:13px;color:#c0cce2">Prefer email? <a href="mailto:YOUR_EMAIL@example.com">Contact us by email</a></p>
+  </div>
+ </div>
 </section>
+</main>
 
 <footer>
-  © 2026 ReviewBoost AI
+ <div class="container">
+  <p><strong>ReviewBoost AI</strong> — Digital Growth Partner</p>
+  <p>© <span id="year"></span> ReviewBoost AI. All rights reserved.</p>
+  <p>Professional marketing. Honest communication. Real work.</p>
+ </div>
 </footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Replace with your WhatsApp number, including country code.
+// Example format for India: 919876543210
+const WHATSAPP_NUMBER = "9326306370";
+
+document.getElementById("leadForm").addEventListener("submit", function(e) {
+ e.preventDefault();
+
+ const name = document.getElementById("name").value.trim();
+ const business = document.getElementById("business").value.trim();
+ const service = document.getElementById("service").value;
+ const message = document.getElementById("message").value.trim();
+
+ if (!name || !business || !service) {
+  alert("Please fill in all required fields.");
+  return;
+ }
+
+ if (!/^91[0-9]{10}$/.test(WHATSAPP_NUMBER)) {
+  alert("The website owner needs to add a valid WhatsApp number first.");
+  return;
+ }
+
+ const text =
+  "Hello ReviewBoost AI!%0A%0A" +
+  "Name: " + encodeURIComponent(name) + "%0A" +
+  "Business: " + encodeURIComponent(business) + "%0A" +
+  "Service: " + encodeURIComponent(service) + "%0A" +
+  "Requirements: " + encodeURIComponent(message);
+
+ window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank");
+});
+</script>
 </body>
 </html>
